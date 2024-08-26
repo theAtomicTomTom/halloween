@@ -2,6 +2,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
+    <main>
+      <div>
+        <p>Please RSVP via this link:</p>
+        <a href="https://docs.google.com/spreadsheets/d/1gv_6xxpc9XqAzg_5VCoG0D4f9dUh5d_nzw-oDJj2iDU/edit?gid=2128357706#gid=2128357706">Google Sheets Sign-Up</a>
+      </div>
+    </main>
+  );
+  /*return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
@@ -109,5 +117,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  );
+  );*/
 }
