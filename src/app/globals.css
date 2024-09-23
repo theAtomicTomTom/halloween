@@ -19,6 +19,12 @@ th, td {
   letter-spacing: 2px;
 }
 
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .tr-green {
   background-color: #96BF5C;
   color: black;
@@ -37,4 +43,10 @@ th, td {
 .tr-white {
   background-color: white;
   color: black;
+}
+
+select {
+  min-width: 75px;
+  width: 100%;
+  border-radius: 0.15rem;
 }

@@ -3,5 +3,10 @@
 import Table from "@/components/Table";
 
 export default function Home() {
-  return <Table/>
+  return (
+  <div>
+    <div className="title">Halloween Murder Mystery '24</div>
+    <Table/>
+  </div>
+  );
 }

@@ -1,25 +1,17 @@
 import { useState } from 'react';
-
-interface Guest {
-    guestId?: string;
-    email?: string;
-    firstName: string;
-    lastName: string;
-    rsvpStatus?: string;
-}
+import { Guest } from './Table';
 
 interface GuestRowProps {
     guest: Guest;
+    updateGuests: (guest: Guest) => void;
 }
 
-export function GuestRow({ guest }: GuestRowProps) {
-    const [ rsvpStatus, setRsvpStatus ] = useState(guest.rsvpStatus);
-
+export function GuestRow({ guest, updateGuests }: GuestRowProps) {
     const handleRsvpChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         fetch(`https://api.thomaslujan.com/guests?guestId=${guest.guestId}&lastName=${guest.lastName}&rsvpStatus=${event.target.value}`, {
             method: 'POST'
         }).then(res => res.json())
-        .then(data => setRsvpStatus(data.rsvpStatus))
+        .then(data => updateGuests(data))
         .catch(err => console.log(err));
     };
 
@@ -29,7 +21,7 @@ export function GuestRow({ guest }: GuestRowProps) {
                 { guestName(guest) }
             </td>
             <td>
-                <select value={ rsvpStatus } onChange={ handleRsvpChange }>
+                <select value={ guest.rsvpStatus } onChange={ handleRsvpChange }>
                     <option value='y'>Yes</option>
                     <option value='n'>No</option>
                     <option value='m'>Maybe</option>
