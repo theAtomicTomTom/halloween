@@ -16,8 +16,11 @@ export function GuestRow({ guest }: GuestRowProps) {
     const [ rsvpStatus, setRsvpStatus ] = useState(guest.rsvpStatus);
 
     const handleRsvpChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setRsvpStatus(event.target.value);
-        // do post to update in ddb
+        fetch(`https://api.thomaslujan.com/guests?guestId=${guest.guestId}&lastName=${guest.lastName}&rsvpStatus=${event.target.value}`, {
+            method: 'POST'
+        }).then(res => res.json())
+        .then(data => setRsvpStatus(data.rsvpStatus))
+        .catch(err => console.log(err));
     };
 
     return (
