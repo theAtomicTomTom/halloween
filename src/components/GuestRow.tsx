@@ -24,7 +24,7 @@ export function GuestRow({ guest }: GuestRowProps) {
     };
 
     return (
-        <tr key={ guest.guestId }>
+        <tr key={ guest.guestId } className={getColor(guest)}>
             <td>
                 { guestName(guest) }
             </td>
@@ -48,4 +48,17 @@ function capitalize(name: string): string {
 
 function guestName(guest: Guest): string {
     return `${capitalize(guest.firstName)} ${capitalize(guest.lastName)}`;
+}
+
+function getColor(guest: Guest): string {
+    switch (guest.rsvpStatus) {
+        case 'y':
+            return 'tr-green';
+        case 'm':
+            return 'tr-purple';
+        case 'n':
+            return 'tr-grey';
+        default:
+            return 'tr-white';
+    }
 }

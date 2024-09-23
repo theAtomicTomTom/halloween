@@ -26,7 +26,7 @@ export default function Table() {
             <thead>
                 {guests.length > 0 &&
                     <tr>
-                        <th>Guest List</th>
+                        <th className='font-AmaticSC'>Guest List</th>
                         <th>RSVP Reponse</th>
                         <th>Email</th>
                     </tr>
