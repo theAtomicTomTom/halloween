@@ -7,6 +7,11 @@ body {
   color: white;
 }
 
+a {
+  color: lightblue;
+  text-decoration: underline;
+}
+
 table {
   table-layout: fixed;
   width: 100%;
@@ -49,4 +54,5 @@ select {
   min-width: 75px;
   width: 100%;
   border-radius: 0.15rem;
+  color: black;
 }

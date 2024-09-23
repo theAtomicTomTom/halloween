@@ -22,9 +22,10 @@ export function GuestRow({ guest, updateGuests }: GuestRowProps) {
             </td>
             <td>
                 <select value={ guest.rsvpStatus } onChange={ handleRsvpChange }>
-                    <option value='y'>Yes</option>
-                    <option value='n'>No</option>
-                    <option value='m'>Maybe</option>
+                    <option value="" selected disabled hidden>--- we're waiting on your response... ---</option>
+                    <option value='y'>"It's showtime!" (yes)</option>
+                    <option value='m'>"Please, it's a little late to be neurotic." (maybe)</option>
+                    <option value='n'>"I'm trying to cut back myself." (no)</option>
                 </select>
             </td>
             <td>
