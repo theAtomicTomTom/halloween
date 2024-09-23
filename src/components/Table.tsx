@@ -49,7 +49,7 @@ export default function Table() {
                 }
             </thead>
             <tbody>
-                { guests.map(guest => <GuestRow guest={ guest } updateGuests={updateGuests}/>) }
+                { guests.map(guest => <GuestRow key={ guest.guestId }  guest={ guest } updateGuests={updateGuests}/>) }
             </tbody>
         </table>
     );

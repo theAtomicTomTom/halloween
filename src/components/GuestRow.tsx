@@ -16,16 +16,16 @@ export function GuestRow({ guest, updateGuests }: GuestRowProps) {
     };
 
     return (
-        <tr key={ guest.guestId } className={getColor(guest)}>
+        <tr className={getColor(guest)}>
             <td>
                 { guestName(guest) }
             </td>
             <td>
                 <select value={ guest.rsvpStatus } onChange={ handleRsvpChange }>
-                    <option value="" selected disabled hidden>--- we're waiting on your response... ---</option>
-                    <option value='y'>"It's showtime!" (yes)</option>
-                    <option value='m'>"Please, it's a little late to be neurotic." (maybe)</option>
-                    <option value='n'>"I'm trying to cut back myself." (no)</option>
+                    <option value="" selected disabled hidden>--- we&lsquo;re waiting on your response... ---</option>
+                    <option value='y'>&ldquo;It&lsquo;s showtime!&rdquo; (yes)</option>
+                    <option value='m'>&ldquo;Please, it&lsquo;s a little late to be neurotic.&rdquo; (maybe)</option>
+                    <option value='n'>&ldquo;I&lsquo;m trying to cut back myself.&rdquo; (no)</option>
                 </select>
             </td>
             <td>
