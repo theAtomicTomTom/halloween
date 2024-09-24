@@ -55,4 +55,33 @@ select {
   width: 100%;
   border-radius: 0.15rem;
   color: black;
+  text-overflow: ellipsis;
+}
+
+input {
+  width: 100%;
+}
+
+.input-green {
+  background-color: #96BF5C;
+  color: black;
+}
+
+.input-purple {
+  background-color: #C8ADE3;
+  color: black;
+}
+
+.input-grey {
+  background-color: #373737;
+  color: white;
+}
+
+.input-white {
+  background-color: white;
+  color: black;
+}
+
+button {
+  padding: 0;
 }
