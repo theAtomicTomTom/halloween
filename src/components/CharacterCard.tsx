@@ -15,7 +15,7 @@ export default function CharacterCard({ index, character, guests, updateCharacte
     const [url, setUrl] = useState(null);
 
     useEffect(() => {
-        setUrl(null);
+        //setUrl(null);
         if (!url) {
             fetch(`https://api.thomaslujan.com/beta/image?id=${character.id}`, {
                 method: 'GET'
@@ -23,7 +23,7 @@ export default function CharacterCard({ index, character, guests, updateCharacte
             .then(data => setUrl(data.url))
             .catch(err => console.log(err));
         }
-    }, [character.id]);
+    }, [character.id, url]);
 
     const handleGuestChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         fetch(`https://api.thomaslujan.com/beta/character?id=${character.id}`, {
