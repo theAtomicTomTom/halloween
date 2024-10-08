@@ -66,7 +66,7 @@ export default function CharacterSelectTable() {
 
     return (
         <div>
-            {characters.map(character => <CharacterCard key={character.id} character={ character } guests={guests} updateCharacters={updateCharacters} updateGuests={updateGuests}/>)}
+            {characters.map((character, index) => <CharacterCard key={character.id} index={index} character={ character } guests={guests} updateCharacters={updateCharacters} updateGuests={updateGuests}/>)}
         </div>
     );
 }

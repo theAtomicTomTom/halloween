@@ -2,13 +2,14 @@ import { Character } from "./CharacterSelectTable";
 import { Guest } from './Table';
 
 interface CharacterCardProps {
-    character: Character
+    index: number;
+    character: Character;
     guests: Guest[];
     updateCharacters: (character: Character) => void;
     updateGuests: (guest: Guest) => void;
 }
 
-export default function CharacterCard({ character, guests, updateCharacters, updateGuests }: CharacterCardProps) {
+export default function CharacterCard({ index, character, guests, updateCharacters, updateGuests }: CharacterCardProps) {
     const handleGuestChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         fetch(`https://api.thomaslujan.com/beta/character?id=${character.id}`, {
             method: 'POST',
@@ -44,7 +45,7 @@ export default function CharacterCard({ character, guests, updateCharacters, upd
     }
 
     return (
-        <div className={`character-card ${getCardClassname(character)}`}>
+        <div className={`character-card ${getCardClassname(character, index)}`}>
             <strong>Name:</strong> {character.name}
             <br/>
                 {character.guest && <strong>{`Guest: ${getGuestName(character, guests)}`}<button onClick={handleOnClick}> (remove) </button></strong>}
@@ -91,9 +92,12 @@ function guestName(guest: Guest): string {
     return `${capitalize(guest.firstName)} ${capitalize(guest.lastName)}`;
 }
 
-function getCardClassname(character: Character) {
+function getCardClassname(character: Character, index: number) {
     if (character.guest) {
-        return 'character-card-assigned';
+        if (index % 2 === 0)
+            return 'character-card-purple';
+        else
+            return 'character-card-green';
     } else {
         return '';
     }

@@ -104,6 +104,10 @@ button {
   width: 100%;
 }
 
-.character-card-assigned {
+.character-card-purple {
   background-color: #C8ADE3;
+}
+
+.character-card-green {
+  background-color: #96BF5C;
 }
