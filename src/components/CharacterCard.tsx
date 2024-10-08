@@ -15,7 +15,10 @@ export default function CharacterCard({ index, character, guests, updateCharacte
     const [url, setUrl] = useState(null);
 
     useEffect(() => {
-        //setUrl(null);
+        setUrl(null);
+    }, []);
+
+    useEffect(() => {
         if (!url) {
             fetch(`https://api.thomaslujan.com/beta/image?id=${character.id}`, {
                 method: 'GET'

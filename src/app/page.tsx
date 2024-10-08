@@ -7,7 +7,7 @@ import Tabs from "@/components/Tabs";
 import { TabOptions } from "@/constants/TabOptions";
 
 export default function Home() {
-  const [selectedTab, setSelectedTab] = useState(TabOptions.RSVP);
+  const [selectedTab, setSelectedTab] = useState(TabOptions.CHARACTER_SELECT);
 
   return (
   <div>
