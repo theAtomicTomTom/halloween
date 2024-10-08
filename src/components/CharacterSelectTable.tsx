@@ -18,7 +18,7 @@ export default function CharacterSelectTable() {
         fetch('https://api.thomaslujan.com/beta/character', {
             method: 'GET'
         }).then(res => res.json())
-        .then(data => setCharacters(data))
+        .then(data => setCharacters(sorted(data)))
         .catch(err => console.log(err));
     }, []);
 
@@ -28,7 +28,7 @@ export default function CharacterSelectTable() {
         }).then(res => res.json())
         .then(data => {
             const guests = data as Guest[];
-            setGuests(guests);
+            setGuests(sortedGuests(guests));
         }).catch(err => console.log(err));
     }, []);
 
@@ -69,4 +69,22 @@ export default function CharacterSelectTable() {
             {characters.map(character => <CharacterCard key={character.id} character={ character } guests={guests} updateCharacters={updateCharacters} updateGuests={updateGuests}/>)}
         </div>
     );
+}
+
+function sorted(characters: Character[]): Character[] {
+    return characters.sort((c1, c2) => {
+        if (c1.guest && !c2.guest) {
+            return 1;
+        } else if (!c1.guest && c2.guest) {
+            return -1;
+        } else {
+            return c1.name.localeCompare(c2.name);
+        }
+    });
+}
+
+function sortedGuests(guests: Guest[]): Guest[] {
+    return guests.sort((g1, g2) => {
+        return g1.firstName.localeCompare(g2.firstName);
+    })
 }
