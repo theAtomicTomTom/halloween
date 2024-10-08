@@ -19,7 +19,7 @@ export default function CharacterCard({ index, character, guests, updateCharacte
     }, []);
 
     useEffect(() => {
-        if (!url) {
+        if (!url && character.id) {
             fetch(`https://api.thomaslujan.com/beta/image?id=${character.id}`, {
                 method: 'GET'
             }).then(res => res.json())
