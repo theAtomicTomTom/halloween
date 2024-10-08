@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import { GuestRow } from '@/components/GuestRow';
 
 export interface Guest {
-    guestId: string;
+    id: string;
     email?: string;
-    id?: string;
     firstName: string;
     lastName: string;
     rsvpStatus?: string;
@@ -15,7 +14,7 @@ export default function Table() {
 
     useEffect(() => {
         console.log('fetching...');
-        fetch('https://api.thomaslujan.com/guests', {
+        fetch('https://api.thomaslujan.com/beta/guest', {
           method: 'GET'
         }).then(res => res.json())
         .then(data => setGuests(data))
@@ -25,7 +24,7 @@ export default function Table() {
     const updateGuests = (guest: Guest) => {
         let index = -1;
         for (let i = 0; i < guests.length; i++) {
-            if (guests[i].guestId === guest.guestId) {
+            if (guests[i].id === guest.id) {
                 index = i;
                 break;
             }
@@ -50,7 +49,7 @@ export default function Table() {
                 }
             </thead>
             <tbody>
-                { guests.map(guest => <GuestRow key={ guest.guestId }  guest={ guest } updateGuests={updateGuests}/>) }
+                { guests.map(guest => <GuestRow key={ guest.id }  guest={ guest } updateGuests={updateGuests}/>) }
             </tbody>
         </table>
     );

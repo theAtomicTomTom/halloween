@@ -19,16 +19,18 @@ export function GuestRow({ guest, updateGuests }: GuestRowProps) {
         event.currentTarget.blur();
         
         if (email != guest.email) {
-            fetch(`https://api.thomaslujan.com/guests?guestId=${guest.guestId}&lastName=${guest.lastName}&email=${email.toLowerCase()}`, {
-                method: 'POST'
+            fetch(`https://api.thomaslujan.com/beta/guest?id=${guest.id}`, {
+                method: 'POST',
+                body: JSON.stringify({ email: email})
             }).then(res => res.json())
             .then(data => updateGuests(data))
             .catch(err => console.log(err));
         }
     }
     const handleRsvpChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        fetch(`https://api.thomaslujan.com/guests?guestId=${guest.guestId}&lastName=${guest.lastName}&rsvpStatus=${event.target.value}`, {
-            method: 'POST'
+        fetch(`https://api.thomaslujan.com/beta/guest?id=${guest.id}`, {
+            method: 'POST',
+            body: JSON.stringify({ rsvpStatus: event.target.value})
         }).then(res => res.json())
         .then(data => updateGuests(data))
         .catch(err => console.log(err));
@@ -51,7 +53,7 @@ export function GuestRow({ guest, updateGuests }: GuestRowProps) {
             </td>
             <td>
                 <input className={ focused ? 'input-white' : `input-${getColor(guest)}`}
-                    id={ `email-input-${guest.guestId}` } 
+                    id={ `email-input-${guest.id}` } 
                     type='text'
                     value={ email }
                     onBlur={ onBlur }
