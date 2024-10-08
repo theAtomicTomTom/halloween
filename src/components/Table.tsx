@@ -18,7 +18,7 @@ export default function Table() {
         fetch('https://api.thomaslujan.com/beta/guest', {
           method: 'GET'
         }).then(res => res.json())
-        .then(data => setGuests(data))
+        .then(data => setGuests(sortedGuests(data)))
         .catch(err => console.log(err));
       }, []);
 
@@ -54,4 +54,23 @@ export default function Table() {
             </tbody>
         </table>
     );
+}
+
+function sortedGuests(guests: Guest[]): Guest[] {
+    return guests.sort((g1, g2) => {
+        if (g1.rsvpStatus && !g2.rsvpStatus) {
+            return 1;
+        } else if (!g1.rsvpStatus && g2.rsvpStatus) {
+            return -1;
+        } else {
+            if (g1.rsvpStatus === g2.rsvpStatus) {
+                return g1.firstName.localeCompare(g2.firstName);
+            } else {
+                if (g1.rsvpStatus && g2.rsvpStatus)
+                    return -1 * g1.rsvpStatus.localeCompare(g2.rsvpStatus);
+                else 
+                    return 1;
+            }
+        }
+    });
 }
