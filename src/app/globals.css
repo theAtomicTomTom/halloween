@@ -12,6 +12,18 @@ a {
   text-decoration: underline;
 }
 
+.tab-bar {
+  width: 100%;
+}
+
+.tab-button {
+  width: 50%;
+}
+
+.tab-selected {
+  background-color: #96BF5C;
+}
+
 table {
   table-layout: fixed;
   width: 100%;
@@ -84,4 +96,10 @@ input {
 
 button {
   padding: 0;
+}
+
+.character-card {
+  border: 1px solid;
+  padding: 5px;
+  width: 100%;
 }

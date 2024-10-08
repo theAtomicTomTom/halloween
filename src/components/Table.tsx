@@ -4,6 +4,7 @@ import { GuestRow } from '@/components/GuestRow';
 export interface Guest {
     guestId: string;
     email?: string;
+    id?: string;
     firstName: string;
     lastName: string;
     rsvpStatus?: string;
