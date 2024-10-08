@@ -24,7 +24,10 @@ export default function CharacterCard({ index, character, guests, updateCharacte
                 method: 'GET'
             }).then(res => res.json())
             .then(data => setUrl(data.url))
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err)
+                setUrl(null);
+            });
         }
     }, [character.id, url]);
 
