@@ -28,9 +28,9 @@ export default function CharacterSelectTable() {
         }).then(res => res.json())
         .then(data => {
             const guests = data as Guest[];
-            setGuests(guests.filter(guest => guest.rsvpStatus === 'y'));
+            setGuests(guests);
         }).catch(err => console.log(err));
-    })
+    }, []);
 
     const updateCharacters = (character: Character) => {
         let index = -1;
@@ -48,9 +48,25 @@ export default function CharacterSelectTable() {
         ]);
     }
 
+    const updateGuests = (guest: Guest) => {
+        let index = -1;
+        for (let i = 0; i < guests.length; i++) {
+            if (guests[i].id === guest.id) {
+                index = i;
+                break;
+            }
+        }
+
+        setGuests([
+            ...guests.slice(0, index),
+            guest,
+            ...guests.slice(index+1)
+        ]);
+    };
+
     return (
         <div>
-            {characters.map(character => <CharacterCard key={character.id} character={ character } guests={guests} updateCharacters={updateCharacters}/>)}
+            {characters.map(character => <CharacterCard key={character.id} character={ character } guests={guests} updateCharacters={updateCharacters} updateGuests={updateGuests}/>)}
         </div>
     );
 }
