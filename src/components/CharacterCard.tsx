@@ -16,13 +16,14 @@ export default function CharacterCard({ index, character, guests, updateCharacte
 
     useEffect(() => {
         setUrl(null);
-        fetch(`https://api.thomaslujan.com/beta/image?id=${character.id}`, {
-            method: 'GET'
-        }).then(res => res.json())
-        .then(data => setUrl(data.url))
-        .catch(err => console.log(err));
-
-    }, [character]);
+        if (!url) {
+            fetch(`https://api.thomaslujan.com/beta/image?id=${character.id}`, {
+                method: 'GET'
+            }).then(res => res.json())
+            .then(data => setUrl(data.url))
+            .catch(err => console.log(err));
+        }
+    }, [character.id]);
 
     const handleGuestChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         fetch(`https://api.thomaslujan.com/beta/character?id=${character.id}`, {
