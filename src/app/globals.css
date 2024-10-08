@@ -103,3 +103,7 @@ button {
   padding: 5px;
   width: 100%;
 }
+
+.character-card-assigned {
+  background-color: #C8ADE3;
+}

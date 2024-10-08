@@ -44,7 +44,7 @@ export default function CharacterCard({ character, guests, updateCharacters, upd
     }
 
     return (
-        <div className='character-card'>
+        <div className={`character-card ${getCardClassname(character)}`}>
             <strong>Name:</strong> {character.name}
             <br/>
                 {character.guest && <strong>{`Guest: ${getGuestName(character, guests)}`}<button onClick={handleOnClick}> (remove) </button></strong>}
@@ -89,4 +89,12 @@ function getGuestOption(guest: Guest) {
 
 function guestName(guest: Guest): string {
     return `${capitalize(guest.firstName)} ${capitalize(guest.lastName)}`;
+}
+
+function getCardClassname(character: Character) {
+    if (character.guest) {
+        return 'character-card-assigned';
+    } else {
+        return '';
+    }
 }
