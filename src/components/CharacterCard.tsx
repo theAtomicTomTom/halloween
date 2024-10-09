@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import { Character } from "./CharacterSelectTable";
 import { Guest } from './Table';
 
@@ -12,25 +10,6 @@ interface CharacterCardProps {
 }
 
 export default function CharacterCard({ index, character, guests, updateCharacters, updateGuests }: CharacterCardProps) {
-    const [url, setUrl] = useState(null);
-
-    useEffect(() => {
-        setUrl(null);
-    }, []);
-
-    useEffect(() => {
-        if (!url && character.id) {
-            fetch(`https://api.thomaslujan.com/beta/image?id=${character.id}`, {
-                method: 'GET'
-            }).then(res => res.json())
-            .then(data => setUrl(data.url))
-            .catch(err => {
-                console.log(err)
-                setUrl(null);
-            });
-        }
-    }, [character.id, url]);
-
     const handleGuestChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         fetch(`https://api.thomaslujan.com/beta/character?id=${character.id}`, {
             method: 'POST',
@@ -67,7 +46,7 @@ export default function CharacterCard({ index, character, guests, updateCharacte
 
     return (
         <div className={`character-card ${getCardClassname(character, index)}`}>
-            {url && <div><img src={url} style={{ width: '150px', height: '150px'}}/></div>}
+            <div><img src={`https://halloween-images.s3.us-east-2.amazonaws.com/${character.id}.png`} style={{ width: '150px', height: '150px'}}/></div>
             <strong>Name:</strong> {character.name}
             <br/>
                 {character.guest && <strong>{`Guest: ${getGuestName(character, guests)}`}<button onClick={handleOnClick}> (remove) </button></strong>}
