@@ -66,8 +66,17 @@ function sortedGuests(guests: Guest[]): Guest[] {
             if (g1.rsvpStatus === g2.rsvpStatus) {
                 return g1.firstName.localeCompare(g2.firstName);
             } else {
-                if (g1.rsvpStatus && g2.rsvpStatus)
-                    return -1 * g1.rsvpStatus.localeCompare(g2.rsvpStatus);
+                if (g1.rsvpStatus && g2.rsvpStatus) {
+                    if (g1.rsvpStatus === 'y') {
+                        return -1;
+                    } else if (g2.rsvpStatus === 'y') {
+                        return 1;
+                    } else if (g1.rsvpStatus === 'm') {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }
                 else 
                     return 1;
             }
