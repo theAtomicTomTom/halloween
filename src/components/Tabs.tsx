@@ -13,6 +13,11 @@ export default function Tabs({ selectedTab, setSelectedTab }: TabsProps) {
             >
                 RSVP
             </button>
+            <button className={ getClass(selectedTab, TabOptions.POTLUCK) }
+                onClick={ () => setSelectedTab(TabOptions.POTLUCK) }
+            >
+                Potluck
+            </button>
             <button className={ getClass(selectedTab, TabOptions.CHARACTER_SELECT) }
                 onClick={ () => setSelectedTab(TabOptions.CHARACTER_SELECT) }
             >

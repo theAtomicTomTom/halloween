@@ -17,7 +17,7 @@ a {
 }
 
 .tab-button {
-  width: 50%;
+  width: 33%;
 }
 
 .tab-selected {
@@ -110,4 +110,78 @@ button {
 
 .character-card-green {
   background-color: #96BF5C;
+}
+
+.potluck-table {
+  border: 1px solid;
+}
+
+.potluck-entry {
+  display: flex;
+  width: 100%;
+}
+
+.potluck-header-green {
+  background-color: #96BF5C;
+  color: black;
+  padding: 5px;
+  width: 70%;
+}
+
+.potluck-header-purple {
+  background-color: #C8ADE3;
+  color: black;
+  padding: 5px;
+  width: 30%;
+}
+
+.potluck-entry-name {
+  padding: 5px;
+  width: 30%;
+}
+
+.potluck-entry-name-input {
+  background-color: #C8ADE3;
+  color: black;
+  padding: 5px;
+  width: 30%;
+}
+
+.potluck-entry-food {
+  padding: 5px;
+  width: 55%;
+}
+
+.potluck-entry-food-input {
+  background-color: #96BF5C;
+  color: black;
+  padding: 5px;
+  width: 55%;
+}
+
+.potluck-entry-button {
+  padding: 5px;
+  width: 15%;
+}
+
+.potluck-entry-button-input {
+  background-color: #96BF5C;
+  color: black;
+  padding: 5px;
+  width: 15%;
+}
+
+.potluck-green {
+  background-color: #F0F6E5;
+  color: black;
+}
+
+.potluck-purple {
+  background-color: #E8E7FA;
+  color: black;
+}
+
+.potluck-white {
+  background-color: white;
+  color: black;
 }
