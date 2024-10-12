@@ -123,15 +123,19 @@ button {
 
 .potluck-header-green {
   background-color: #96BF5C;
-  color: black;
+  color: white;
+  font-weight: 700;
   padding: 5px;
+  text-align: center;
   width: 70%;
 }
 
 .potluck-header-purple {
   background-color: #C8ADE3;
-  color: black;
+  color: white;
+  font-weight: 700;
   padding: 5px;
+  text-align: center;
   width: 30%;
 }
 
